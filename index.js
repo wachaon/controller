@@ -5,10 +5,12 @@ const { resolve } = require('pathname')
 const { readFileSync, existsFileSync } = require('filesystem')
 const { isNumber, isString } = require('typecheck')
 
-const mouse_exe = resolve(__dirname, '../mouse.exe')
+const mouse_exe = resolve(__dirname, 'mouse.exe')
 const exists_mouse_exe = existsFileSync(mouse_exe)
-const keyboard_exe = resolve(__dirname, '../keyboard.exe')
+console.log('mouse_exe: %O exists_mouse_exe: ', mouse_exe, existsFileSync(mouse_exe))
+const keyboard_exe = resolve(__dirname, 'keyboard.exe')
 const exists_keyboard_exe = existsFileSync(keyboard_exe)
+console.log('keyboard_exe: %O exists_keyboard_exe: ', keyboard_exe, existsFileSync(keyboard_exe))
 
 
 const mouse = `$Source = @"
@@ -20,42 +22,42 @@ Add-Type -Language CSharp -TypeDefinition $Source
 const pos = function mouse_pos(x = 0, y = 0) {
     // x と y は絶対値。
     if (exists_mouse_exe) WShell.Exec(`${mouse_exe} pos ${x} ${y}`)
-    ps(mouse, ['pos', x, y])
+    else ps(mouse, ['pos', x, y])
 }
 
 const click = function mouse_click(x = 0, y = 0) {
     // x と y は絶対値ではなく、相対値になることに注意する。
     if (exists_mouse_exe) WShell.Exec(`${mouse_exe} click ${x} ${y}`)
-    ps(mouse, ['click', x, y])
+    else ps(mouse, ['click', x, y])
 }
 
 const leftDown = function mouse_leftDown(x = 0, y = 0) {
     // x と y は絶対値ではなく、相対値になることに注意する。
     if (exists_mouse_exe) WShell.Exec(`${mouse_exe} leftDown ${x} ${y}`)
-    ps(mouse, ['leftDown', x, y])
+    else ps(mouse, ['leftDown', x, y])
 }
 
 const leftUp = function mouse_leftUp(x = 0, y = 0) {
     // x と y は絶対値ではなく、相対値になることに注意する。
     if (exists_mouse_exe) WShell.Exec(`${mouse_exe} leftUp ${x} ${y}`)
-    ps(mouse, ['leftUp', x, y])
+    else ps(mouse, ['leftUp', x, y])
 }
 
 const rightClick = function mouse_rightClick(x = 0, y = 0) {
     // x と y は絶対値ではなく、相対値になることに注意する。
     if (exists_mouse_exe) WShell.Exec(`${mouse_exe} rightClick ${x} ${y}`)
-    ps(mouse, ['rightClick', x, y])
+    else ps(mouse, ['rightClick', x, y])
 }
 
 const rightDown = function mouse_rightDown(x = 0, y = 0) {
     // x と y は絶対値ではなく、相対値になることに注意する。
     if (exists_mouse_exe) WShell.Exec(`${mouse_exe} rightDown ${x} ${y}`)
-    ps(mouse, ['rightDown', x, y])
+    else ps(mouse, ['rightDown', x, y])
 }
 const rightUp = function mouse_rightUp(x = 0, y = 0) {
     // x と y は絶対値ではなく、相対値になることに注意する。
     if (exists_mouse_exe) WShell.Exec(`${mouse_exe} rightUp ${x} ${y}`)
-    ps(mouse, ['rightUp', x, y])
+    else ps(mouse, ['rightUp', x, y])
 }
 
 const keyboard = `$Source = @"
