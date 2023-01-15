@@ -3,6 +3,7 @@ const compile = require('./run/compile.js')
 const ps = require('ps')
 const { resolve } = require('pathname')
 const { readFileSync, existsFileSync } = require('filesystem')
+const { isNumber, isString } = require('typecheck')
 
 const mouse_exe = resolve(__dirname, '../mouse.exe')
 const exists_mouse_exe = existsFileSync(mouse_exe)
