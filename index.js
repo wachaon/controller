@@ -67,7 +67,7 @@ Add-Type -Language CSharp -TypeDefinition $Source
 // console.log('[keyboard]: \n%S', keyboard)
 
 const send = function keyboard_send(keyCode) {
-    if (isString(keyCode)) WScript.SendKeys(keyCode)
+    if (isString(keyCode)) WShell.SendKeys(keyCode)
     if (isNumber(keyCode)) {
         if (exists_keyboard_exe) WShell.Exec(`${keyboard_exe} send ${keyCode}`)
         else ps(keyboard, ['send', keyCode])
