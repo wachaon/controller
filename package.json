@@ -1,0 +1,24 @@
+{
+  "name": "controller",
+  "version": "0.0.2",
+  "description": "Keyboard, Mouse and Window Operations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wachaon/controller.git"
+  },
+  "keywords": [
+    "Keyboard",
+    "Mouse",
+    "Window"
+  ],
+  "author": "wachaon@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wachaon/controller/issues"
+  },
+  "homepage": "https://github.com/wachaon/controller#readme"
+}
