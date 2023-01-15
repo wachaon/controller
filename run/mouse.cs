@@ -22,7 +22,6 @@ public class MouseSimulator {
             mouse_event(0x4, posX, posY, 0, 0);
         }
 
-
         if (method == "rightClick" || method == "rightDown") {
             mouse_event(0x8, posX, posY, 0, 0);
         }

@@ -35,7 +35,7 @@ function compile() {
     }).find(ex => existsFileSync(ex))
 
     CSharp.forEach(cs => {
-        const command = `${toWin32Sep(exe)} /target:exe /out:${cs.key} ${cs.path}`
+        const command = `${toWin32Sep(exe)} /target:exe /out:${resolve(__dirname, '../' + cs.key)} ${cs.path}`
         //console.log('%O', command)
         const exec = WShell.Exec(command)
         while (!exec.StdOut.AtEndOfStream) console.log(exec.StdOut.ReadLine())

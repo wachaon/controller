@@ -7,10 +7,10 @@ public class KeyboardSimulator {
         int key_code = Int32.Parse(args[1]);
         byte input = (byte)key_code;
 
-        if (method == "enter" || method == "down") {
+        if (method == "send" || method == "press") {
             KeyDown(input);
         }
-        if (method == "enter" || method == "up") {
+        if (method == "send" || method == "release") {
             KeyUp(input);
         }
     }
