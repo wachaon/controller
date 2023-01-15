@@ -11,7 +11,7 @@ const exists_keyboard_exe = existsFileSync(keyboard_exe)
 
 
 const mouse = `$Source = @"
-${readFileSync('./run/mouse.cs', 'auto')}"@
+${readFileSync(resolve(__dirname, 'run/mouse.cs'), 'auto')}"@
 
 Add-Type -Language CSharp -TypeDefinition $Source
 [MouseSimulator]::Main($args[0], $args[1], $args[2])`
@@ -58,7 +58,7 @@ const rightUp = function mouse_rightUp(x = 0, y = 0) {
 }
 
 const keyboard = `$Source = @"
-${readFileSync('./run/keyboard.cs', 'auto')}"@
+${readFileSync(resolve(__dirname, 'run/keyboard.cs'), 'auto')}"@
 
 Add-Type -Language CSharp -TypeDefinition $Source
 [KeyboardSimulator]::Main($args[0], $args[1])`
