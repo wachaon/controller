@@ -7,10 +7,10 @@ const { isNumber, isString } = require('typecheck')
 
 const mouse_exe = resolve(__dirname, 'mouse.exe')
 const exists_mouse_exe = existsFileSync(mouse_exe)
-console.log('mouse_exe: %O exists_mouse_exe: ', mouse_exe, existsFileSync(mouse_exe))
+// console.log('mouse_exe: %O exists_mouse_exe: ', mouse_exe, existsFileSync(mouse_exe))
 const keyboard_exe = resolve(__dirname, 'keyboard.exe')
 const exists_keyboard_exe = existsFileSync(keyboard_exe)
-console.log('keyboard_exe: %O exists_keyboard_exe: ', keyboard_exe, existsFileSync(keyboard_exe))
+// console.log('keyboard_exe: %O exists_keyboard_exe: ', keyboard_exe, existsFileSync(keyboard_exe))
 
 
 const mouse = `$Source = @"
@@ -60,6 +60,24 @@ const rightUp = function mouse_rightUp(x = 0, y = 0) {
     else ps(mouse, ['rightUp', x, y])
 }
 
+const whileClick = function mouse_whileClick(x = 0, y = 0) {
+    // x と y は絶対値ではなく、相対値になることに注意する。
+    if (exists_mouse_exe) WShell.Exec(`${mouse_exe} whileClick ${x} ${y}`)
+    else ps(mouse, ['whileClick', x, y])
+}
+
+const whileDown = function mouse_whileClick(x = 0, y = 0) {
+    // x と y は絶対値ではなく、相対値になることに注意する。
+    if (exists_mouse_exe) WShell.Exec(`${mouse_exe} whileDown ${x} ${y}`)
+    else ps(mouse, ['whileDown', x, y])
+}
+
+const whileUp = function mouse_whileClick(x = 0, y = 0) {
+    // x と y は絶対値ではなく、相対値になることに注意する。
+    if (exists_mouse_exe) WShell.Exec(`${mouse_exe} whileUp ${x} ${y}`)
+    else ps(mouse, ['whileUp', x, y])
+}
+
 const keyboard = `$Source = @"
 ${readFileSync(resolve(__dirname, 'run/keyboard.cs'), 'auto')}"@
 
@@ -86,7 +104,6 @@ const release = function keyboard_release(keyCode) {
     if (isNumber(keyCode)) ps(keyboard, ['release', keyCode])
 }
 
-
 module.exports = {
     send,
     press,
@@ -98,6 +115,9 @@ module.exports = {
     rightClick,
     rightDown,
     rightUp,
+    whileClick,
+    whileDown,
+    whileUp,
     compile,
     VK_LBUTTON: 0x01, // マウスの左ボタン
     VK_RBUTTON: 0x02, // マウスの右ボタン
