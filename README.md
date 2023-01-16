@@ -40,7 +40,10 @@ send(VK_RETURN)
 | rightClick | - | 右クリック |
 | rightDown | `{number} x,`<br>`{number} y ` | マウスの右ボタンを押す(相対位置) |
 | rightUp | `{number} x,`<br>`{number} y ` | マウスの右ボタンを離す(相対位置) |
-| send | `{number|string} keyCode` | `keyCode` が数値なら仮想キーコードを文字列ならその文字列を `SendKeys()` します |
+| whileClick | - | ホイールクリック |
+| whileDown | `{number} x,`<br>`{number} y ` | マウスのホイールボタンを押す(相対位置) |
+| whileUp | `{number} x,`<br>`{number} y ` | マウスのホイールボタンを離す(相対位置) |
+| send | `{number\|string} keyCode` | `keyCode` が数値なら仮想キーコードを文字列ならその文字列を `SendKeys()` します |
 | press | `{number} keyCode` | 仮想キーコードのキーを押す |
 | release | `{number} keyCode` | 仮想キーコードのキーを離す |
 
