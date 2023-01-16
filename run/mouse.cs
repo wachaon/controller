@@ -17,9 +17,9 @@ public class MouseSimulator {
         if (method == "rightClick") { mouse_event(0x10, 0, 0, 0, 0); }
         if (method == "righttUp") { mouse_event(0x10, posX, posY, 0, 0); }
 
-        if (method == "whileClick" || method == "whileDown") { mouse_event(0x20, posX, posY, 0); }
-        if (method == "whileClick") { mouse_event(0x40, 0, 0, 0); }
-        if (method == "whileUp") { mouse_event(0x40, posX, posY, 0); }
+        if (method == "whileClick" || method == "whileDown") { mouse_event(0x20, posX, posY, 0, 0); }
+        if (method == "whileClick") { mouse_event(0x40, 0, 0, 0, 0); }
+        if (method == "whileUp") { mouse_event(0x40, posX, posY, 0, 0); }
     }
 
     [DllImport("USER32.dll", CallingConvention = CallingConvention.StdCall)]
