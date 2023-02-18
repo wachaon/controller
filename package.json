@@ -1,6 +1,6 @@
 {
   "name": "controller",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Keyboard, Mouse and Window Operations",
   "main": "index.js",
   "scripts": {
